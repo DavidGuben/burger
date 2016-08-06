@@ -2,7 +2,9 @@ var orm = require('../config/orm.js');
 
 var burger = {
 	all: function (cb) {
+		console.log("route hit all");
 		orm.all('burgers', function (res) {
+			console.log("route hit orm");
 			cb(res);
 		});
 	},

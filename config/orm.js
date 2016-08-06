@@ -1,7 +1,7 @@
 /*
 Here is the O.R.M. where you write functions that takes inputs and conditions and turn them into database commands like SQL.
 */
-var connection = require('../config/connection.js');
+var connection = require('./connection.js');
 
 function printQuestionMarks(num) {
 	var arr = [];
@@ -28,8 +28,12 @@ function objToSql(ob) {
 
 var orm = {
 	all: function (tableInput, cb) {
+		console.log("orm all");
 		var queryString = 'SELECT * FROM ' + tableInput + ';';
+		console.log(queryString);
 		connection.query(queryString, function (err, result) {
+			console.log(result);
+			console.log("connection query");
 			if (err) throw err;
 			cb(result);
 		});

@@ -12,7 +12,9 @@ router.get('/', function (req, res) {
 
 // render a list of burgers
 router.get('/burgers', function (req, res) {
+	console.log("route hit");
 	burger.all(function (data) {
+		console.log("route hit 2");
 		var hbsObject = { burgers: data };
 		console.log(hbsObject);
 		res.render('index', hbsObject);
