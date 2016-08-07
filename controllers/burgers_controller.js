@@ -23,7 +23,7 @@ router.get('/burgers', function (req, res) {
 
 // router for creating a burger
 router.post('/burgers/create', function (req, res) {
-	burger.create(['name', 'devour'], [req.body.name, req.body.devour], function () {
+	burger.create(['name', 'devoured'], [req.body.name, req.body.devoured], function () {
 		res.redirect('/burgers');
 	});
 });
@@ -33,7 +33,7 @@ router.put('/burgers/update/:id', function (req, res) {
 
 	console.log('condition', condition);
 
-	burger.update({ devour: req.body.devour }, condition, function () {
+	burger.update({ devoured: req.body.devoured }, condition, function () {
 		res.redirect('/burgers');
 	});
 });
