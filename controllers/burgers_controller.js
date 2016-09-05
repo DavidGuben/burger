@@ -15,7 +15,25 @@ router.get('/burgers', function(req, res) {
 });
 
 router.post('/burgers/create', function(req, res) {
-  cat.create(['name', 'devoured'], [req.body.name, req.body.devoured], function() {
+  burger.create(['name', 'devoured'], [req.body.name, req.body.devoured], function() {
+    res.redirect('/burgers');
+  });
+});
+
+router.put('/cats/update/:id', function(req, res){
+  var condition = 'id = ' + req.params.id;
+
+  console.log('condition ', condition);
+
+  burger.update({devoured: req.body.devoured}, condition, function() {
+    res.redirect('/burgers');
+  });
+});
+
+router.delete('/cats/delete/:id', function(req, res) {
+  var condition = 'id = ' + req.params.id;
+
+  burger.delete(condition, function() {
     res.redirect('/burgers');
   });
 });
