@@ -1,7 +1,7 @@
 // dependencies
 var express = require('express');
 var router = express.Router();
-var cat = require('../models/burger.js');
+var burger = require('../models/burger.js');
 
 // main route
 router.get('/', function(req, res) {
@@ -11,7 +11,7 @@ router.get('/', function(req, res) {
 // route to get all burgers
 router.get('/burgers', function(req, res) {
   burger.all(function (data) {
-    var hbsObect = { burgers:data };
+    var hbsObject = { burgers:data };
     console.log(hbsObject);
     res.render('index', hbsObject);
   });
