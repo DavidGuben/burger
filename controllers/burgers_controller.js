@@ -43,3 +43,5 @@ router.delete('/burgers/delete/:id', function(req, res) {
     res.redirect('/burgers');
   });
 });
+
+module.exports = router;
