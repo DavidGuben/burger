@@ -1,7 +1,19 @@
-<h1>burgers!</h1>
+<!DOCTYPE html>
+<html lang="en">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<h2>burgers that are not devoured!</h2>
-
+<div class="jumbotron" style="text-align:center;">
+  <img id="img" src="imgs/burger.png"/>
+  <h1>Burger Time</h1>
+  <p>Here you can make and devour burgers</p>
+</div>
+<div class="row">
+  <div class="col-md-6">
 <ul>
   {{#each burgers}}
     {{#unless this.devoured}}
@@ -10,7 +22,7 @@
 
         <form action="burgers/update/{{this.id}}?_method=PUT" method="POST">
           <input type="hidden" name="devoured" value="true">
-          <button type="submit">SLEEP TIME!</button>
+          <button class="btn btn-primary" type="submit">Make Again</button>
         </form>
 
         {{> burgers/delete-burger}}
@@ -18,8 +30,9 @@
     {{/unless}}
   {{/each}}
 </ul>
-
-<h2>burgers that are devoured!</h2>
+</div>
+<div class="col-md-6">
+<h2>burgers that aren't devoured!</h2>
 
 <ul>
   {{#each burgers}}
@@ -29,7 +42,7 @@
 
         <form action="burgers/update/{{this.id}}?_method=PUT" method="POST">
           <input type="hidden" name="devoured" value="false">
-          <button type="submit"DEVOUR IT</button>
+          <button class="btn btn-danger" type="submit">DEVOUR IT</button>
         </form>
 
         {{> burgers/delete-burger}}
@@ -54,3 +67,6 @@
 
   <button type="submit">Add burger</button>
 </form>
+</div>
+</div>
+</html>
